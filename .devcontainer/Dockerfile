@@ -30,17 +30,3 @@ RUN /home/linuxbrew/.linuxbrew/bin/brew install \
 
 # cyrus-and/gdb-dashboard
 RUN wget -P ~ https://git.io/.gdbinit && /home/linuxbrew/.linuxbrew/bin/pip3 install pygments
-
-# Compile and install GDB
-# RUN apt-get update && apt-get install --yes --no-install-recommends \
-#         libncurses-dev \
-#         python3-pip \
-#         libgmp-dev \
-#     && wget 'http://ftp.gnu.org/gnu/gdb/gdb-12.1.tar.gz' --directory-prefix=/tmp \
-#     && tar -xvzf /tmp/gdb-12.1.tar.gz --directory /tmp \
-#     && cd /tmp/gdb-12.1 \
-#     && ./configure --enable-tui --with-python=$(which python3) \
-#     && make && make install \
-#     # cyrus-and/gdb-dashboard
-#     && wget -P ~ https://git.io/.gdbinit && pip install pygments \
-#     && rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/*
