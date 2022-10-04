@@ -1,0 +1,24 @@
+{       
+    "editor.minimap.enabled": false,
+    "extensions.ignoreRecommendations": true,
+    "workbench.sideBar.location": "right",
+    "workbench.editor.showTabs": false,
+
+    "explorer.autoReveal": false,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+        ".gitignore": ".gitattributes, .gitmodules",
+    },
+    "files.exclude": {
+        "CMakeLists.txt": true,
+        "**/.gdb_history": true,
+    },
+
+    // "clangd.fallbackFlags": [
+    //     "--include-directory=/catkin_ws/devel/include",
+    //     "--include-directory=/opt/ros/noetic/include",
+    //     "--include-directory=/usr/include",
+    //     "--include-directory=/usr/include/eigen3",
+    // ],
+}
