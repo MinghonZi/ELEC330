@@ -27,7 +27,9 @@ RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/instal
 
 RUN /home/linuxbrew/.linuxbrew/bin/brew install \
         jesseduffield/lazygit/lazygit \
-        gdb
+        gdb \
+        # clangd
+        llvm
 
 # cyrus-and/gdb-dashboard
 RUN wget -P ~ https://git.io/.gdbinit && /home/linuxbrew/.linuxbrew/bin/pip3 install pygments
