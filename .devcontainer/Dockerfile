@@ -8,6 +8,7 @@ RUN echo '[ -f /catkin_ws/devel/setup.bash ] && source /catkin_ws/devel/setup.ba
 RUN apt-get update && apt-get install --yes --no-install-recommends \
         # https://classic.gazebosim.org/tutorials?tut=ros_installing
         ros-$ROS_DISTRO-gazebo-ros-pkgs ros-$ROS_DISTRO-gazebo-ros-control \
+        python-is-python3 \
     && rm -rf /var/lib/apt/lists/*
 
 
