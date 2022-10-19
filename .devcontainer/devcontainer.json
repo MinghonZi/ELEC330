@@ -1,41 +1,41 @@
 {
-	"name": "ELEC330",
-	
-	"build": {
-		"dockerfile": "./Dockerfile",
-		"context": "..",
+    "name": "ELEC330",
+
+    "build": {
+        "dockerfile": "./Dockerfile",
+        "context": "..",
         "target": "devel"
-	},
+    },
 
-	"workspaceMount": "source=${localWorkspaceFolder},target=/catkin_ws/src,type=bind",
-	"workspaceFolder": "/catkin_ws/src",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/catkin_ws/src,type=bind",
+    "workspaceFolder": "/catkin_ws/src",
 
-	"containerEnv": {
-		// "DISPLAY": "host.docker.internal:0"
-		"DISPLAY": "${env:DISPLAY}",
-		"GIT_EDITOR": "code --wait"
-	},
+    "containerEnv": {
+        // "DISPLAY": "host.docker.internal:0"
+        "DISPLAY": "${env:DISPLAY}",
+        "GIT_EDITOR": "code --wait"
+    },
 
-	"runArgs": [
-		"-v", "/tmp/.X11-unix:/tmp/.X11-unix",  // Comment this if not on Linux, or if on Linux but using wayland for display
+    "runArgs": [
+        "-v", "/tmp/.X11-unix:/tmp/.X11-unix",  // Comment this if not on Linux, or if on Linux but using wayland for display
         // "--gpus", "all"
         "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"  // enables using a ptrace-based debugger like C++, Go, and Rust
     ],
 
-	"postCreateCommand": "catkin_make --directory /catkin_ws -DPYTHON_EXECUTABLE=/usr/bin/python3.8 -DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+    "postCreateCommand": "catkin_make --directory /catkin_ws -DPYTHON_EXECUTABLE=/usr/bin/python3.8 -DCMAKE_EXPORT_COMPILE_COMMANDS=1",
 
-	"customizations": {
-		// Configure properties specific to VS Code.
-		"vscode": {
-			"extensions": [
-				"twxs.cmake",
-				"llvm-vs-code-extensions.vscode-clangd"
-			],
-			"settings": {
-				"clangd.arguments": [
-					"--compile-commands-dir=/catkin_ws/build"  // `catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=1` would generate a `compile_commands.json` inside `catkin_ws/build` which works for the entire workspace.
-				]
-			}
-		}
-	}
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            "extensions": [
+                "twxs.cmake",
+                "llvm-vs-code-extensions.vscode-clangd"
+            ],
+            "settings": {
+                "clangd.arguments": [
+                    "--compile-commands-dir=/catkin_ws/build"  // `catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=1` would generate a `compile_commands.json` inside `catkin_ws/build` which works for the entire workspace.
+                ]
+            }
+        }
+    }
 }

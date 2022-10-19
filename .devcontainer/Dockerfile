@@ -1,5 +1,6 @@
 FROM osrf/ros:noetic-desktop-focal AS base
 
+SHELL ["/bin/bash", "-c"]
 WORKDIR /catkin_ws/src
 
 RUN echo '[ -f /opt/ros/$ROS_DISTRO/setup.bash ] && source /opt/ros/$ROS_DISTRO/setup.bash' >> ~/.bashrc
@@ -10,6 +11,10 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
         ros-$ROS_DISTRO-gazebo-ros-pkgs ros-$ROS_DISTRO-gazebo-ros-control \
         python-is-python3 \
     && rm -rf /var/lib/apt/lists/*
+
+# Workaround: https://answers.gazebosim.org/question/8577/gazebo-22-cant-open-usrsharegazebosetupsh/?answer=21515#post-id-21515
+# Fix not merged: https://github.com/ros-simulation/gazebo_ros_pkgs/pull/1100/commits/7d0ed4ceeea0c77a606ca59c539aa8d5d7e56dc8
+RUN sed -i '/setup_path=/ s|$(pkg-config --variable=prefix gazebo)|/usr|' /opt/ros/noetic/lib/gazebo_ros/{gazebo,gzserver,gzclient}
 
 
 FROM base AS devel
