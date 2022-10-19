@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ass1</name>
+  <version>0.0.0</version>
+  <description>The ass1 package</description>
+
+  <author email="sgmxu9@liverpool.ac.uk">Minghong Xu</author>
+  <maintainer email="sgmxu9@liverpool.ac.uk">Minghong Xu</maintainer>
+
+  <license>ISC</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>urdf</build_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>urdf</build_export_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>urdf</exec_depend>
+
+</package>
