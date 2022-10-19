@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="visual">
 
-  <material name="blue">
+<material name="blue">
     <color rgba="0 0 0.8 1"/>
   </material>
   <material name="black">
@@ -58,6 +58,7 @@
         <cylinder length="0.1" radius="0.035"/>
       </geometry>
       <material name="black"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
   </link>
   <joint name="right_front_wheel_joint" type="fixed">

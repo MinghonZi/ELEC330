@@ -29,7 +29,8 @@
         "vscode": {
             "extensions": [
                 "twxs.cmake",
-                "llvm-vs-code-extensions.vscode-clangd"
+                "llvm-vs-code-extensions.vscode-clangd",
+                "tomoki1207.pdf"
             ],
             "settings": {
                 "clangd.arguments": [
