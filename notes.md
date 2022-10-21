@@ -1,3 +1,5 @@
+https://github.com/bulletphysics/bullet3/tree/master/data
+
 https://en.wikipedia.org/wiki/Mobile_manipulator
 
 https://github.com/nicrusso7/rex-gym/blob/master/rex_gym/util/pybullet_data/assets/urdf/rex_arm.urdf
