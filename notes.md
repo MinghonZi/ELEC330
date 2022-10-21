@@ -1,3 +1,6 @@
+https://en.wikipedia.org/wiki/Mobile_manipulator
+
+https://github.com/nicrusso7/rex-gym/blob/master/rex_gym/util/pybullet_data/assets/urdf/rex_arm.urdf
 Manipulator, [Poppy Ergo Jr](https://github.com/poppy-project/poppy_ergo_jr_description)
 [RoboPeak LiDAR](http://www.robopeak.com/blog/?cat=5)
 
