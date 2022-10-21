@@ -1,3 +1,4 @@
+Manipulator, [Poppy Ergo Jr](https://github.com/poppy-project/poppy_ergo_jr_description)
 [RoboPeak LiDAR](http://www.robopeak.com/blog/?cat=5)
 
 Ctrl+D
