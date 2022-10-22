@@ -1,3 +1,5 @@
+[Why not using GitHub LFS](https://news.ycombinator.com/item?id=27135548)
+
 https://github.com/bulletphysics/bullet3/tree/master/data
 
 https://en.wikipedia.org/wiki/Mobile_manipulator
