@@ -1,3 +1,10 @@
+
+
+[3D model dataset for Gazebo](https://data.nvision2.eecs.yorku.ca/3DGEMS/)
+
+The difference between the two can be summed up in the following excerpt from Morgan Quigley (one of the original developers of ROS) in his book Programming Robots with ROS:
+> rviz shows you what the robot thinks is happening, while Gazebo shows you what is really happening.
+
 [Why not using GitHub LFS](https://news.ycombinator.com/item?id=27135548)
 
 https://github.com/bulletphysics/bullet3/tree/master/data
