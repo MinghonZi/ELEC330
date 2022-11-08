@@ -7,8 +7,11 @@
         "target": "devel"
     },
 
-    "workspaceMount": "source=${localWorkspaceFolder},target=/catkin_ws/src,type=bind",
-    "workspaceFolder": "/catkin_ws/src",
+    "runArgs": [
+        "-v", "/tmp/.X11-unix:/tmp/.X11-unix",  // Comment this if not on Linux, or if on Linux but using wayland for display
+        "--gpus", "all",
+        "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"  // enables using a ptrace-based debugger like C++, Go, and Rust
+    ],
 
     "containerEnv": {
         // "DISPLAY": "host.docker.internal:0"
@@ -16,18 +19,17 @@
         "GIT_EDITOR": "code --wait"
     },
 
-    "runArgs": [
-        "-v", "/tmp/.X11-unix:/tmp/.X11-unix",  // Comment this if not on Linux, or if on Linux but using wayland for display
-        "--gpus", "all",
-        "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"  // enables using a ptrace-based debugger like C++, Go, and Rust
-    ],
+    "remoteUser": "elec330",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/elec330/catkin_ws/src,type=bind",
+    "workspaceFolder": "/home/elec330/catkin_ws/src",
 
-    "postCreateCommand": "catkin_make --directory /catkin_ws -DPYTHON_EXECUTABLE=/usr/bin/python3.8 -DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+    "postCreateCommand": "catkin_make --directory /home/elec330/catkin_ws -DPYTHON_EXECUTABLE=/usr/bin/python3.8 -DCMAKE_EXPORT_COMPILE_COMMANDS=1",
 
     "customizations": {
         // Configure properties specific to VS Code.
         "vscode": {
             "extensions": [
+                "ms-azuretools.vscode-docker",
                 "twxs.cmake",
                 "llvm-vs-code-extensions.vscode-clangd",
                 "tomoki1207.pdf"
