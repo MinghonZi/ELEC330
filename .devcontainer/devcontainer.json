@@ -3,8 +3,7 @@
 
     "build": {
         "dockerfile": "./Dockerfile",
-        "context": "..",
-        "target": "devel"
+        "context": ".."
     },
 
     "runArgs": [
@@ -23,7 +22,7 @@
     "workspaceMount": "source=${localWorkspaceFolder},target=/home/elec330/catkin_ws/src,type=bind",
     "workspaceFolder": "/home/elec330/catkin_ws/src",
 
-    "postCreateCommand": "catkin_make --directory /home/elec330/catkin_ws -DPYTHON_EXECUTABLE=/usr/bin/python3.8 -DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+    "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
 
     "customizations": {
         // Configure properties specific to VS Code.

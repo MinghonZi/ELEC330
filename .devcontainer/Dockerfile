@@ -33,26 +33,3 @@ RUN sudo apt-get update && sudo apt-get install --yes --no-install-recommends \
 RUN sudo sed -i '/setup_path=/ s|$(pkg-config --variable=prefix gazebo)|/usr|' /opt/ros/noetic/lib/gazebo_ros/{gazebo,gzserver,gzclient}
 
 RUN mkdir -p ~/catkin_ws/src
-
-
-FROM base AS devel
-
-RUN sudo apt-get update && sudo apt-get install --yes --no-install-recommends \
-        curl \
-        wget \
-        git \
-    && sudo rm -rf /var/lib/apt/lists/*
-
-# Install Homebrew
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
-    echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.profile && \
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.profile
-
-RUN /home/linuxbrew/.linuxbrew/bin/brew install \
-        jesseduffield/lazygit/lazygit \
-        gdb \
-        # Install clangd
-        llvm
-
-# cyrus-and/gdb-dashboard
-RUN wget -P ~ https://git.io/.gdbinit && /home/linuxbrew/.linuxbrew/bin/pip3 install pygments

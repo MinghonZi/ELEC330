@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+<robot name="manmaru" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="default_inertial" params="mass">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="${mass}" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="wheel" params="prefix x y">
+
+    <link name="${prefix}_wheel">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://manmaru_description/meshes/wheel.stl"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://manmaru_description/meshes/wheel.stl"/>
+        </geometry>
+      </collision>
+      <xacro:default_inertial mass="1"/>
+    </link>
+
+    <joint name="${prefix}_wheel_joint" type="continuous">
+      <origin xyz="${x} ${y} 0" rpy="0 0 0"/>
+      <axis xyz="0 1 0" rpy="0 0 0" />
+      <parent link="trunk"/>
+      <child link="${prefix}_wheel"/>
+    </joint>
+
+    <!-- This block provides Gazebo with information on a few additional physical properties. -->
+    <gazebo reference="${prefix}_wheel">
+      <mu1 value="200.0"/>
+      <mu2 value="100.0"/>
+      <kp value="1000000.0" />
+      <kd value="10.0" />
+    </gazebo>
+
+    <!-- This block connects the wheel joint to an actuator (motor), which informs both
+    simulation and visualization of the robot -->
+    <transmission name="${prefix}_wheel_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="${prefix}_wheel_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="${prefix}_wheel_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+    </transmission>
+
+  </xacro:macro>
+
+  <!-- Trunk -->
+  <link name="dummy"></link>
+  <link name="trunk">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/trunk.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/trunk.stl"/>
+      </geometry>
+    </collision>
+    <xacro:default_inertial mass="5"/>
+  </link>
+  <joint name="dummy_joint" type="fixed">
+    <parent link="dummy"/>
+    <child link="trunk"/>
+  </joint>
+
+  <!-- Four Wheels -->
+  <xacro:wheel prefix="left_front"  x="0.04"  y="0.04"/>
+  <xacro:wheel prefix="left_back"   x="0.04"  y="-0.04"/>
+  <xacro:wheel prefix="right_front" x="-0.04" y="0.04"/>
+  <xacro:wheel prefix="right_back"  x="-0.04" y="-0.04"/>
+
+  <!-- LiDAR -->
+  <link name="lidar">
+    <visual>
+      <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi}" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/lidar.stl" scale="0.0002 0.0002 0.0002"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi}" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/lidar.stl" scale="0.0002 0.0002 0.0002"/>
+      </geometry>
+    </collision>
+    <xacro:default_inertial mass="0.1"/>
+  </link>
+  <joint name="lidar_on_trunk" type="fixed">
+    <origin xyz="0.04 -0.007 0.015" rpy="0 0 0"/>
+    <parent link="trunk"/>
+    <child link="lidar"/>
+  </joint>
+
+  <!-- Mobile Manipulator -->
+  <xacro:arg name="lamp" default="false"/>
+  <xacro:arg name="gripper" default="true"/>
+  <link name="long_U">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/mobile_manipulator/long_U.dae" scale="0.7 0.7 0.7"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/mobile_manipulator/long_U.dae" scale="0.7 0.7 0.7"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1" />
+      <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+  <joint name="m1" type="continuous">
+    <origin xyz="-0.02 0 0.015" rpy="0 0 ${pi/2}" />
+    <parent link="trunk" />
+    <child link="long_U" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="section_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5707963267949 0" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/mobile_manipulator/section_1.dae" scale="0.7 0.7 0.7"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5707963267949 0" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/mobile_manipulator/section_1.dae" scale="0.7 0.7 0.7"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1" />
+      <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+  <joint name="m2" type="continuous">
+    <origin xyz="0 0 0.017" rpy="0 -1.5707963267949 0" />
+    <parent link="long_U" />
+    <child link="section_1" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="section_2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5707963267949 0" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/mobile_manipulator/section_2.dae" scale="0.7 0.7 0.7"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5707963267949 0" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/mobile_manipulator/section_2.dae" scale="0.7 0.7 0.7"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1" />
+      <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+  <joint name="m3" type="continuous">
+    <origin xyz="0.038 0 0" rpy="0 0 0" />
+    <parent link="section_1" />
+    <child link="section_2" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="section_3">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 3.14159268 0" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/mobile_manipulator/section_3.dae" scale="0.7 0.7 0.7"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 3.14159268 0" />
+      <geometry>
+        <mesh filename="package://manmaru_description/meshes/mobile_manipulator/section_3.dae" scale="0.7 0.7 0.7"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1" />
+      <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+  <joint name="m4" type="continuous">
+    <origin xyz="0.031 0 0" rpy="0 -1.5707963267949 0" />
+    <parent link="section_2" />
+    <child link="section_3" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="section_4">
+    <visual>
+      <xacro:if value="$(arg lamp)">
+        <origin xyz="0 0 0" rpy="0 -1.5707963267949 1.5707963267949" />
+        <geometry>
+          <mesh filename="package://manmaru_description/meshes/mobile_manipulator/section_1.dae" scale="0.7 0.7 0.7"/>
+        </geometry>
+      </xacro:if>
+      <xacro:if value="$(arg gripper)">
+        <origin xyz="0 -0.058 0" rpy="0 -1.5707963267949 0" />
+        <geometry>
+          <mesh filename="package://manmaru_description/meshes/mobile_manipulator/section_4.dae" scale="0.7 0.7 0.7"/>
+        </geometry>
+      </xacro:if>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.035 0" rpy="1.5707963267949 0 0" />
+      <geometry>
+        <cylinder length="0.06" radius="0.02" />
+        <box size="0.05 0.02 0.03" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1" />
+      <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+  <joint name="m5" type="continuous">
+    <origin xyz="0 -0.033 0" rpy="0 -1.5707963267949 0" />
+    <parent link="section_3" />
+    <child link="section_4" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="fixed_tip" />
+  <joint name="t7f" type="fixed">
+    <xacro:if value="$(arg lamp)">
+      <origin xyz="0 -0.075 0" rpy="-1.5707963267949 0 0" />
+      <parent link="section_5" />
+    </xacro:if>
+    <xacro:if value="$(arg gripper)">
+      <origin xyz="0 -0.11 0" rpy="-1.5707963267949 0 0" />
+      <parent link="section_4" />
+    </xacro:if>
+    <child link="fixed_tip" />
+  </joint>
+  <link name="section_5">
+    <xacro:if value="$(arg lamp)">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 1.5707963267949" />
+        <geometry>
+          <mesh filename="package://manmaru_description/meshes/mobile_manipulator/lamp.dae" scale="0.7 0.7 0.7"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 -0.045 0" rpy="1.5707963267949 0 0" />
+        <geometry>
+          <cylinder length="0.06" radius="0.03" />
+          <box size="0.05 0.02 0.03" />
+        </geometry>
+      </collision>
+    </xacro:if>
+    <xacro:if value="$(arg gripper)">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://manmaru_description/meshes/mobile_manipulator/gripper.dae" scale="0.7 0.7 0.7"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://manmaru_description/meshes/mobile_manipulator/gripper.dae" scale="0.7 0.7 0.7"/>
+        </geometry>
+      </collision>
+    </xacro:if>
+    <inertial>
+      <mass value="0.1" />
+      <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+  <joint name="m6" type="continuous">
+    <xacro:if value="$(arg lamp)">
+      <origin xyz="0 -0.054 0" rpy="0 0 0" />
+      <axis xyz="0 0 1" />
+    </xacro:if>
+    <xacro:if value="$(arg gripper)">
+      <origin xyz="0 -0.058 0" rpy="0 -1.5707963267949 0" />
+      <axis xyz="0 0 -1" />
+    </xacro:if>
+    <parent link="section_4" />
+    <child link="section_5" />
+  </joint>
+  <xacro:if value="$(arg gripper)">
+    <link name="moving_tip" />
+    <joint name="t7m" type="fixed">
+      <origin xyz="0 -0.052 0" rpy="-1.5707963267949 0 0" />
+      <parent link="section_5" />
+      <child link="moving_tip" />
+    </joint>
+  </xacro:if>
+  <transmission name="trans_m1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="m1">
+      <!-- TODO: Why EffortJointInterface yeids fluctuation? -->
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="m1_motor">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_m2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="m2">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="m2_motor">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_m3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="m3">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="m3_motor">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_m4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="m4">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="m4_motor">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_m5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="m5">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="m5_motor">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_m6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="m6">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="m6_motor">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Gazebo plugin for ROS Control -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+</robot>

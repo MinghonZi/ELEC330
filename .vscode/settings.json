@@ -13,6 +13,11 @@
     "files.exclude": {
         "CMakeLists.txt": true,
         "**/.gdb_history": true,
+        "learning_quaternion": true,
+        "learning_tf2": true,
+        "learning_urdf": true,
+        "testbot_description": true,
+        "ass1": true,
     },
 
     // "clangd.fallbackFlags": [

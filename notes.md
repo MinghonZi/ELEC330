@@ -1,5 +1,10 @@
 
 
+Add eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) to `~/.bashrc` not `~/.bash_profile` or `~/.profile`
+[](https://github.com/Homebrew/brew/issues/6033)
+
+[postCreateCommands script](https://github.com/microsoft/vscode-remote-release/issues/3527#issuecomment-674739457)
+
 [3D model dataset for Gazebo](https://data.nvision2.eecs.yorku.ca/3DGEMS/)
 
 The difference between the two can be summed up in the following excerpt from Morgan Quigley (one of the original developers of ROS) in his book Programming Robots with ROS:
