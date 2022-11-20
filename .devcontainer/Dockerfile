@@ -19,7 +19,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
 USER $USERNAME
 
 RUN echo '[ -f /opt/ros/$ROS_DISTRO/setup.bash ] && source /opt/ros/$ROS_DISTRO/setup.bash' >> ~/.bashrc
-RUN echo '[ -f /catkin_ws/devel/setup.bash ] && source /catkin_ws/devel/setup.bash' >> ~/.bashrc
+RUN echo '[ -f ~/catkin_ws/devel/setup.bash ] && source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
 
 RUN sudo apt-get update && sudo apt-get install --yes --no-install-recommends \
         # https://classic.gazebosim.org/tutorials?tut=ros_installing

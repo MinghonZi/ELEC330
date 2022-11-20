@@ -18,6 +18,7 @@
         "learning_urdf": true,
         "testbot_description": true,
         "ass1": true,
+        "lab5": true,
     },
 
     // "clangd.fallbackFlags": [

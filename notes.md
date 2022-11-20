@@ -1,5 +1,13 @@
 
 
+## Classic Gazebo
+
+- [Components](https://classic.gazebosim.org/tutorials?tut=components&cat=get_started)
+- [roslaunch](https://classic.gazebosim.org/tutorials?tut=ros_roslaunch&cat=connect_ros)
+- https://classic.gazebosim.org/tutorials?tut=ros_gzplugins
+- https://github.com/ros-simulation/gazebo_ros_pkgs
+- https://classic.gazebosim.org/tutorials?tut=ros_control
+
 Add eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) to `~/.bashrc` not `~/.bash_profile` or `~/.profile`
 [](https://github.com/Homebrew/brew/issues/6033)
 
