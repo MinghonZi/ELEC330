@@ -19,6 +19,8 @@
         "testbot_description": true,
         "ass1": true,
         "lab5": true,
+        "lab7": true,
+        "manmaru_description": true,
     },
 
     // "clangd.fallbackFlags": [
