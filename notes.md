@@ -1,5 +1,26 @@
 
 
+
+## Hardware acceleration
+
+[WSL2 + Docker + OpenGL + NVIDIA not working (uses llvmpipe)](https://github.com/NVIDIA/nvidia-docker/issues/1554)
+
+[OpenGL and Mesa](https://wiki.archlinux.org/title/OpenGL)
+
+Important!!!: [NVIDIA_DRIVER_CAPABILITIES](https://github.com/NVIDIA/nvidia-container-runtime#nvidia_driver_capabilities)
+
+```shell
+apt install mesa-utils
+glxinfo -B
+```
+
+> glxgears is somewhat outdated. Try better es2gears from the mesa-utils-extra package.
+```shell
+apt install mesa-utils-extra
+es2gears
+```
+
+
 ## Classic Gazebo
 
 - [Components](https://classic.gazebosim.org/tutorials?tut=components&cat=get_started)
