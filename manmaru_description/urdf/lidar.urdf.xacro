@@ -14,12 +14,11 @@
             <mesh filename="package://manmaru_description/meshes/lidar.stl" scale="0.0002 0.0002 0.0002"/>
          </geometry>
       </collision>
-      <xacro:default_inertial mass="0.1"/>
    </link>
 
-   <joint name="lidar_on_trunk" type="fixed">
+   <joint name="lidar_on_base" type="fixed">
       <origin xyz="0.04 -0.007 0.015" rpy="0 0 0"/>
-      <parent link="trunk"/>
+      <parent link="classis"/>
       <child link="lidar_link"/>
    </joint>
 

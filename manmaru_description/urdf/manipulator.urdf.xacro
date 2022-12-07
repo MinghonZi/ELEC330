@@ -25,7 +25,7 @@
 
    <joint name="m1" type="continuous">
       <origin xyz="-0.02 0 0.015" rpy="0 0 ${pi/2}" />
-      <parent link="trunk" />
+      <parent link="classis" />
       <child link="long_U" />
       <axis xyz="0 0 1" />
    </joint>

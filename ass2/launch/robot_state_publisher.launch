@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Starting robot state publisher which will publish tf -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="30.0" />
+    </node>
+</launch>

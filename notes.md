@@ -1,6 +1,12 @@
 
 
 
+http://wiki.ros.org/teleop_twist_keyboard
+
+[PlotJuggler](https://discourse.ros.org/t/rqt-in-ros2/6428/10)
+
+https://answers.ros.org/question/341313/what-happens-if-i-use-c-17-features-in-my-ros-nodes/
+
 ## Hardware acceleration
 
 [WSL2 + Docker + OpenGL + NVIDIA not working (uses llvmpipe)](https://github.com/NVIDIA/nvidia-docker/issues/1554)

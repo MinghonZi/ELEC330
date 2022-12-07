@@ -26,6 +26,11 @@ RUN sudo apt-get update && sudo apt-get install --yes --no-install-recommends \
         ros-$ROS_DISTRO-gazebo-ros-pkgs ros-$ROS_DISTRO-gazebo-ros-control \
         python-is-python3 \
         liburdfdom-tools \
+        ros-$ROS_DISTRO-navigation \
+        ros-$ROS_DISTRO-slam-gmapping \
+        ros-$ROS_DISTRO-map-server \
+        ros-$ROS_DISTRO-rqt-robot-plugins \
+        ros-$ROS_DISTRO-joint-state-publisher-gui \
     && sudo rm -rf /var/lib/apt/lists/*
 
 # Workaround: https://answers.gazebosim.org/question/8577/gazebo-22-cant-open-usrsharegazebosetupsh/?answer=21515#post-id-21515

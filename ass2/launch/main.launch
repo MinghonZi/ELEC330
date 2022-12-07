@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find ass2)/launch/gazebo.launch"/>
+    <!-- <include file="$(find ass2)/launch/manipulator.launch"/> -->
+    <include file="$(find ass2)/launch/joint_state_publisher.launch"/>
+    <include file="$(find ass2)/launch/robot_state_publisher.launch"/>
+    <include file="$(find ass2)/launch/rviz.launch"/>
+    <!-- <include file="$(find ass2)/launch/gmapping.launch"/> -->
+    <include file="$(find ass2)/launch/map_server.launch"/>
+    <include file="$(find ass2)/launch/move_base.launch"/>
+</launch>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+      <rosparam file="$(find ass2)/params/global_costmap.yaml" command="load" />
+      <rosparam file="$(find ass2)/params/local_costmap.yaml" command="load" />
+      <rosparam file="$(find ass2)/params/costmap_common.yaml" command="load" ns="global_costmap" />
+      <rosparam file="$(find ass2)/params/costmap_common.yaml" command="load" ns="local_costmap" />
+      <rosparam file="$(find ass2)/params/move_base.yaml" command="load" />
+      <rosparam file="$(find ass2)/params/base_local_planner.yaml" command="load" />
+      <remap from="cmd_vel" to="/manmaru/cmd_vel"/>
+      <remap from="odom" to="/manmaru/odom"/>
+   </node>
+</launch>
