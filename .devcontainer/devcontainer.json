@@ -38,7 +38,14 @@
             "settings": {
                 "clangd.arguments": [
                     "--compile-commands-dir=/catkin_ws/build"  // `catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=1` would generate a `compile_commands.json` inside `catkin_ws/build` which works for the entire workspace.
-                ]
+                ],
+                // https://github.com/microsoft/vscode-remote-release/issues/1671
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash",
+                        "args": ["-l"]
+                    }
+                }
             }
         }
     }

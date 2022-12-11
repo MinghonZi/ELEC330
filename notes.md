@@ -1,6 +1,38 @@
 
 
 
+https://answers.ros.org/question/207771/custom-rosdepyaml-in-my-package/
+http://docs.ros.org/en/independent/api/rosdep/html/contributing_rules.html
+https://answers.ros.org/question/221471/triggering-pip-requirementstxt-from-catkin-build/
+https://www.mathworks.com/help/supportpkg/robotmanipulator/ug/install-ros-dependencies.html
+```
+rosdep custom rule
+--------------------
+yolov5-requirements:
+  ubuntu:
+    pip:
+      packages:
+        - gitpython
+        - ipython
+        - matplotlib
+        - numpy
+        - opencv-python
+        - Pillow
+        - psutil
+        - PyYAML
+        - requests
+        - scipy
+        - thop
+        - torch
+        - torchvision
+        - tqdm
+        - tensorboard
+        - pandas
+        - seaborn
+```
+
+`shopt`
+
 http://wiki.ros.org/teleop_twist_keyboard
 
 [PlotJuggler](https://discourse.ros.org/t/rqt-in-ros2/6428/10)

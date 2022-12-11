@@ -8,4 +8,7 @@
     <!-- <include file="$(find ass2)/launch/gmapping.launch"/> -->
     <include file="$(find ass2)/launch/map_server.launch"/>
     <include file="$(find ass2)/launch/move_base.launch"/>
+
+    <!-- http://wiki.ros.org/roslaunch/XML/node -->
+    <node name="yolo_object_detector" pkg="ass2" type="object_detector.py" output="screen" />
 </launch>

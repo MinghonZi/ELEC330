@@ -22,6 +22,7 @@ RUN echo '[ -f /opt/ros/$ROS_DISTRO/setup.bash ] && source /opt/ros/$ROS_DISTRO/
 RUN echo '[ -f ~/catkin_ws/devel/setup.bash ] && source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
 
 RUN sudo apt-get update && sudo apt-get install --yes --no-install-recommends \
+        curl wget git \
         # https://classic.gazebosim.org/tutorials?tut=ros_installing
         ros-$ROS_DISTRO-gazebo-ros-pkgs ros-$ROS_DISTRO-gazebo-ros-control \
         python-is-python3 \
@@ -31,10 +32,11 @@ RUN sudo apt-get update && sudo apt-get install --yes --no-install-recommends \
         ros-$ROS_DISTRO-map-server \
         ros-$ROS_DISTRO-rqt-robot-plugins \
         ros-$ROS_DISTRO-joint-state-publisher-gui \
+        python3-pip \
     && sudo rm -rf /var/lib/apt/lists/*
 
 # Workaround: https://answers.gazebosim.org/question/8577/gazebo-22-cant-open-usrsharegazebosetupsh/?answer=21515#post-id-21515
 # Fix not merged: https://github.com/ros-simulation/gazebo_ros_pkgs/pull/1100/commits/7d0ed4ceeea0c77a606ca59c539aa8d5d7e56dc8
 RUN sudo sed -i '/setup_path=/ s|$(pkg-config --variable=prefix gazebo)|/usr|' /opt/ros/noetic/lib/gazebo_ros/{gazebo,gzserver,gzclient}
 
-RUN mkdir -p ~/catkin_ws/src
+RUN mkdir --parents ~/catkin_ws/src

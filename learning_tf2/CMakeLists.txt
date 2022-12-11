@@ -35,6 +35,6 @@ target_link_libraries(frame_tf2_broadcaster
 )
 
 install(FILES
-  start_demo.launch
+  launch/start_demo.launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
