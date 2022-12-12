@@ -17,7 +17,7 @@ class ObjectDetector:
 
     def __init__(self) -> None:
         self._model = torch.hub.load('ultralytics/yolov5', 'yolov5s', trust_repo=True)  # https://github.com/ultralytics/yolov5/issues/36
-        self._detector = rospy.Subscriber('/manmaru/camera_front/image_raw', Image, self._detect)
+        self._detector = rospy.Subscriber('/image_raw', Image, self._detect)  # Default topic of gazebo_ros_camera plugin. See https://github.com/ros-simulation/gazebo_ros_pkgs/blob/8583aec91f8dafdf5f1607e582398514d4fc0299/gazebo_plugins/src/gazebo_ros_camera_utils.cpp#L124
         self._detection_img = rospy.Publisher('/object_detection', Image, queue_size=1)
         self._bridge = CvBridge()
 

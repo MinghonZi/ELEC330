@@ -10,5 +10,9 @@
     <include file="$(find ass2)/launch/move_base.launch"/>
 
     <!-- http://wiki.ros.org/roslaunch/XML/node -->
-    <node name="yolo_object_detector" pkg="ass2" type="object_detector.py" output="screen" />
+    <node name="yolo_object_detector" pkg="ass2" type="object_detector.py" output="screen">
+        <!-- http://wiki.ros.org/roslaunch/XML/remap -->
+        <remap from="/image_raw" to="/manmaru/camera_front/image_raw"/>
+        <remap from="/object_detection" to="/manmaru/object_detecion"/>
+    </node>
 </launch>

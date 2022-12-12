@@ -161,7 +161,7 @@ Visualization Manager:
       Value: false
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /object_detection
+      Image Topic: /manmaru/object_detecion
       Max Value: 1
       Median window: 5
       Min Value: 0
