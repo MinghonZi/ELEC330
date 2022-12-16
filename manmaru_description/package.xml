@@ -4,10 +4,12 @@
   <version>0.0.0</version>
   <description>The manmaru_description package</description>
 
-  <maintainer email="sgmxu9@liverpool.ac.uk">Minghong Xu</maintainer>
+  <maintainer email="nobody@nowhere.com">Unmaintained</maintainer>
 
   <license>ISC</license>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <depend>urdf</depend>
+  <depend>xacro</depend>
 
 </package>

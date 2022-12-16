@@ -1,10 +1,12 @@
-<!-- https://wiki.ros.org/gmapping -->
-
 <?xml version="1.0"?>
 <launch>
+   <arg name="scan_topic" default="/scan"/>
+
    <param name="use_sim_time" value="true"/>
+
+   <!-- https://wiki.ros.org/gmapping -->
    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
-      <remap from="scan" to="/manmaru/laser_scan"/>
+      <remap from="scan" to="$(arg scan_topic)"/>
       <param name="map_update_interval" value="0.1"/>
       <param name="maxUrange" value="16.0"/>
       <param name="sigma" value="0.05"/>

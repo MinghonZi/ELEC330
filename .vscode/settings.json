@@ -13,14 +13,6 @@
     "files.exclude": {
         "CMakeLists.txt": true,
         "**/.gdb_history": true,
-        "learning_quaternion": true,
-        "learning_tf2": true,
-        "learning_urdf": true,
-        "testbot_description": true,
-        "ass1": true,
-        "lab5": true,
-        "lab7": true,
-        "manmaru_description": false,
     },
 
     "[xml]": {
@@ -28,10 +20,4 @@
         "editor.renderWhitespace": "selection"
     },
 
-    // "clangd.fallbackFlags": [
-    //     "--include-directory=/catkin_ws/devel/include",
-    //     "--include-directory=/opt/ros/noetic/include",
-    //     "--include-directory=/usr/include",
-    //     "--include-directory=/usr/include/eigen3",
-    // ],
 }

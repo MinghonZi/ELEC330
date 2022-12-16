@@ -18,8 +18,8 @@
          <rightFrontJoint>right_front_wheel_joint</rightFrontJoint>
          <leftRearJoint>left_rear_wheel_joint</leftRearJoint>
          <rightRearJoint>right_rear_wheel_joint</rightRearJoint>
-         <wheelSeparation>0.08</wheelSeparation>
-         <wheelDiameter>0.05</wheelDiameter>
+         <wheelSeparation>0.8</wheelSeparation>
+         <wheelDiameter>0.5</wheelDiameter>
          <robotBaseFrame>base_link</robotBaseFrame>
          <torque>20</torque>
          <broadcastTF>true</broadcastTF>

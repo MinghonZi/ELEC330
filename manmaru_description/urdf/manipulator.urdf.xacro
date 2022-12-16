@@ -8,13 +8,13 @@
       <visual>
          <origin xyz="0 0 0" rpy="0 0 0" />
          <geometry>
-            <mesh filename="package://manmaru_description/meshes/manipulator/long_U.dae" scale="0.7 0.7 0.7"/>
+            <mesh filename="package://manmaru_description/meshes/manipulator/long_U.dae" scale="5.4 5.4 5.4"/>
          </geometry>
       </visual>
       <collision>
          <origin xyz="0 0 0" rpy="0 0 0" />
          <geometry>
-            <mesh filename="package://manmaru_description/meshes/manipulator/long_U.dae" scale="0.7 0.7 0.7"/>
+            <mesh filename="package://manmaru_description/meshes/manipulator/long_U.dae" scale="5.4 5.4 5.4"/>
          </geometry>
       </collision>
       <inertial>
@@ -24,7 +24,7 @@
    </link>
 
    <joint name="m1" type="continuous">
-      <origin xyz="-0.02 0 0.015" rpy="0 0 ${pi/2}" />
+      <origin xyz="-0.2 0 0.15" rpy="0 0 ${pi/2}" />
       <parent link="classis" />
       <child link="long_U" />
       <axis xyz="0 0 1" />
@@ -34,13 +34,13 @@
       <visual>
          <origin xyz="0 0 0" rpy="0 1.5707963267949 0" />
          <geometry>
-            <mesh filename="package://manmaru_description/meshes/manipulator/section_1.dae" scale="0.7 0.7 0.7"/>
+            <mesh filename="package://manmaru_description/meshes/manipulator/section_1.dae" scale="5.4 5.4 5.4"/>
          </geometry>
       </visual>
       <collision>
          <origin xyz="0 0 0" rpy="0 1.5707963267949 0" />
          <geometry>
-            <mesh filename="package://manmaru_description/meshes/manipulator/section_1.dae" scale="0.7 0.7 0.7"/>
+            <mesh filename="package://manmaru_description/meshes/manipulator/section_1.dae" scale="5.4 5.4 5.4"/>
          </geometry>
       </collision>
       <inertial>
@@ -50,7 +50,7 @@
    </link>
 
    <joint name="m2" type="continuous">
-      <origin xyz="0 0 0.017" rpy="0 -1.5707963267949 0" />
+      <origin xyz="0 0 0.13" rpy="0 -1.5707963267949 0" />
       <parent link="long_U" />
       <child link="section_1" />
       <axis xyz="0 0 -1" />
@@ -60,13 +60,13 @@
       <visual>
          <origin xyz="0 0 0" rpy="0 1.5707963267949 0" />
          <geometry>
-            <mesh filename="package://manmaru_description/meshes/manipulator/section_2.dae" scale="0.7 0.7 0.7"/>
+            <mesh filename="package://manmaru_description/meshes/manipulator/section_2.dae" scale="5.4 5.4 5.4"/>
          </geometry>
       </visual>
       <collision>
          <origin xyz="0 0 0" rpy="0 1.5707963267949 0" />
          <geometry>
-            <mesh filename="package://manmaru_description/meshes/manipulator/section_2.dae" scale="0.7 0.7 0.7"/>
+            <mesh filename="package://manmaru_description/meshes/manipulator/section_2.dae" scale="5.4 5.4 5.4"/>
          </geometry>
       </collision>
       <inertial>
@@ -76,7 +76,7 @@
    </link>
 
    <joint name="m3" type="continuous">
-      <origin xyz="0.038 0 0" rpy="0 0 0" />
+      <origin xyz="0.29 0 0" rpy="0 0 0" />
       <parent link="section_1" />
       <child link="section_2" />
       <axis xyz="0 0 -1" />
@@ -86,13 +86,13 @@
       <visual>
          <origin xyz="0 0 0" rpy="0 3.14159268 0" />
          <geometry>
-            <mesh filename="package://manmaru_description/meshes/manipulator/section_3.dae" scale="0.7 0.7 0.7"/>
+            <mesh filename="package://manmaru_description/meshes/manipulator/section_3.dae" scale="5.4 5.4 5.4"/>
          </geometry>
       </visual>
       <collision>
          <origin xyz="0 0 0" rpy="0 3.14159268 0" />
          <geometry>
-            <mesh filename="package://manmaru_description/meshes/manipulator/section_3.dae" scale="0.7 0.7 0.7"/>
+            <mesh filename="package://manmaru_description/meshes/manipulator/section_3.dae" scale="5.4 5.4 5.4"/>
          </geometry>
       </collision>
       <inertial>
@@ -102,7 +102,7 @@
    </link>
 
    <joint name="m4" type="continuous">
-      <origin xyz="0.031 0 0" rpy="0 -1.5707963267949 0" />
+      <origin xyz="0.24 0 0" rpy="0 -1.5707963267949 0" />
       <parent link="section_2" />
       <child link="section_3" />
       <axis xyz="0 0 -1" />
@@ -113,13 +113,13 @@
          <xacro:if value="$(arg lamp)">
             <origin xyz="0 0 0" rpy="0 -1.5707963267949 1.5707963267949" />
             <geometry>
-               <mesh filename="package://manmaru_description/meshes/manipulator/section_1.dae" scale="0.7 0.7 0.7"/>
+               <mesh filename="package://manmaru_description/meshes/manipulator/section_1.dae" scale="5.4 5.4 5.4"/>
             </geometry>
          </xacro:if>
          <xacro:if value="$(arg gripper)">
             <origin xyz="0 -0.058 0" rpy="0 -1.5707963267949 0" />
             <geometry>
-               <mesh filename="package://manmaru_description/meshes/manipulator/section_4.dae" scale="0.7 0.7 0.7"/>
+               <mesh filename="package://manmaru_description/meshes/manipulator/section_4.dae" scale="5.4 5.4 5.4"/>
             </geometry>
          </xacro:if>
       </visual>
@@ -137,7 +137,7 @@
    </link>
 
    <joint name="m5" type="continuous">
-      <origin xyz="0 -0.033 0" rpy="0 -1.5707963267949 0" />
+      <origin xyz="0 -0.51 0" rpy="0 -1.5707963267949 0" />
       <parent link="section_3" />
       <child link="section_4" />
       <axis xyz="0 0 1" />
@@ -162,7 +162,7 @@
          <visual>
             <origin xyz="0 0 0" rpy="0 0 1.5707963267949" />
             <geometry>
-               <mesh filename="package://manmaru_description/meshes/manipulator/lamp.dae" scale="0.7 0.7 0.7"/>
+               <mesh filename="package://manmaru_description/meshes/manipulator/lamp.dae" scale="5.4 5.4 5.4"/>
             </geometry>
          </visual>
          <collision>
@@ -177,13 +177,13 @@
          <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-               <mesh filename="package://manmaru_description/meshes/manipulator/gripper.dae" scale="0.7 0.7 0.7"/>
+               <mesh filename="package://manmaru_description/meshes/manipulator/gripper.dae" scale="5.4 5.4 5.4"/>
             </geometry>
          </visual>
          <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-               <mesh filename="package://manmaru_description/meshes/manipulator/gripper.dae" scale="0.7 0.7 0.7"/>
+               <mesh filename="package://manmaru_description/meshes/manipulator/gripper.dae" scale="5.4 5.4 5.4"/>
             </geometry>
          </collision>
       </xacro:if>
@@ -209,7 +209,7 @@
    <xacro:if value="$(arg gripper)">
       <link name="moving_tip" />
       <joint name="t7m" type="fixed">
-         <origin xyz="0 -0.052 0" rpy="-1.5707963267949 0 0" />
+         <origin xyz="0 -0.52 0" rpy="-1.5707963267949 0 0" />
          <parent link="section_5" />
          <child link="moving_tip" />
       </joint>
