@@ -8,7 +8,9 @@
    <include file="$(find ass2)/launch/amcl.launch">
       <arg name="scan_topic" value="/manmaru/laser_scan" />
    </include>
-   <!-- <include file="$(find ass2)/launch/gmapping.launch" /> -->
+   <!-- <include file="$(find ass2)/launch/gmapping.launch">
+      <arg name="scan_topic" value="/manmaru/laser_scan" />
+   </include> -->
    <include file="$(find ass2)/launch/map_server.launch" />
    <include file="$(find ass2)/launch/move_base.launch">
       <arg name="cmd_vel_topic" value="/manmaru/cmd_vel" />
