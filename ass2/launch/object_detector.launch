@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+   <arg name="image_raw_topic" default="/image_raw" />
+   <arg name="object_detection_topic" default="/object_detection" />
+
+   <node name="yolo_object_detector" pkg="ass2" type="object_detector.py" output="screen">
+      <remap from="/image_raw" to="$(arg image_raw_topic)" />
+      <remap from="/object_detection" to="$(arg object_detection_topic)" />
+   </node>
+</launch>

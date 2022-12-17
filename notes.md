@@ -1,5 +1,6 @@
 
-
+http://wiki.ros.org/roslaunch/XML/remap
+http://wiki.ros.org/roslaunch/XML/node
 
 https://answers.ros.org/question/207771/custom-rosdepyaml-in-my-package/
 http://docs.ros.org/en/independent/api/rosdep/html/contributing_rules.html

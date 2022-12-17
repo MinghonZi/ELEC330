@@ -12,6 +12,7 @@ include_directories(
 )
 
 catkin_install_python(PROGRAMS
+  nodes/face_detector.py
   nodes/object_detector.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
@@ -21,6 +22,7 @@ install(DIRECTORY
   maps
   params
   rviz
+  weights
   worlds
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )

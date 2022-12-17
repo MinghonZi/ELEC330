@@ -17,5 +17,6 @@
     rosdep install ass2
   -->
   <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>python-rospkg</exec_depend>
 
 </package>

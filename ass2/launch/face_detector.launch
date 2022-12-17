@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+   <arg name="image_raw_topic" default="/image_raw" />
+   <arg name="face_detection_topic" default="/face_detection" />
+
+   <node name="yolo_face_detector" pkg="ass2" type="face_detector.py" output="screen">
+      <remap from="/image_raw" to="$(arg image_raw_topic)" />
+      <remap from="/face_detection" to="$(arg face_detection_topic)" />
+   </node>
+</launch>

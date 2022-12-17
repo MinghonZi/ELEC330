@@ -16,11 +16,8 @@
       <arg name="cmd_vel_topic" value="/manmaru/cmd_vel" />
       <arg name="odom_topic" value="/manmaru/odom" />
    </include>
-
-   <!-- http://wiki.ros.org/roslaunch/XML/node -->
-   <node name="yolo_object_detector" pkg="ass2" type="object_detector.py" output="screen">
-      <!-- http://wiki.ros.org/roslaunch/XML/remap -->
-      <remap from="/image_raw" to="/manmaru/camera_front/image_raw" />
-      <remap from="/object_detection" to="/manmaru/object_detecion" />
-   </node>
+   <include file="$(find ass2)/launch/object_detector.launch">
+      <arg name="image_raw_topic" value="/manmaru/camera_front/image_raw" />
+      <arg name="object_detection_topic" value="/manmaru/object_detection" />
+   </include>
 </launch>
