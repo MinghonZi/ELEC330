@@ -17,7 +17,7 @@ from PIL import Image as Im
 class FaceDetector:
 
     def __init__(self) -> None:
-        self._model = torch.hub.load('ultralytics/yolov5', 'custom', Path(RosPack().get_path('ass2'))/'weights'/'yolov5s-face.pt')
+        self._model = torch.hub.load('ultralytics/yolov5', 'custom', Path(RosPack().get_path('ass2'))/'weights'/'yolov5l-face.pt')
         self._detector = rospy.Subscriber('/image_raw', Image, self._detect)
         self._detection_img = rospy.Publisher('/face_detection', Image, queue_size=1)
         self._bridge = CvBridge()

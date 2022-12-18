@@ -1,4 +1,10 @@
 
+
+
+[Anime Crop Datasets: Faces, Figures, & Hands](https://www.gwern.net/Crops#danbooru2019-portraits)
+https://github.com/bchao1/Anime-Face-Dataset
+https://datasetsearch.research.google.com/search?query=anime%20face
+
 http://wiki.ros.org/roslaunch/XML/remap
 http://wiki.ros.org/roslaunch/XML/node
 

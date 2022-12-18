@@ -16,8 +16,8 @@
       <arg name="cmd_vel_topic" value="/manmaru/cmd_vel" />
       <arg name="odom_topic" value="/manmaru/odom" />
    </include>
-   <include file="$(find ass2)/launch/object_detector.launch">
+   <include file="$(find ass2)/launch/face_detector.launch">
       <arg name="image_raw_topic" value="/manmaru/camera_front/image_raw" />
-      <arg name="object_detection_topic" value="/manmaru/object_detection" />
+      <arg name="face_detection_topic" value="/manmaru/object_detection" />
    </include>
 </launch>
