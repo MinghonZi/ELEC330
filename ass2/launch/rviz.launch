@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <launch>
     <!-- Launch visualization in rviz -->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ass2)/rviz/ass2.rviz" />

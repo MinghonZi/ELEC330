@@ -1,6 +1,4 @@
-<?xml version="1.0"?>
 <launch>
-
     <arg name="model" default="$(find manmaru_description)/urdf/manmaru.urdf.xacro" />
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch" />
@@ -16,5 +14,4 @@
     <!-- Spawn URDF-based robots into Gazebo -->
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" 
         args="-urdf -model manmaru -param robot_description -z 1.0" respawn="false" output="screen" />
-
 </launch>

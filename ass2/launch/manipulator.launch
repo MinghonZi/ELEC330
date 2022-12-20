@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <launch>
    <rosparam file="$(find ass2)/params/manipulator.yaml" command="load" />
 </launch>

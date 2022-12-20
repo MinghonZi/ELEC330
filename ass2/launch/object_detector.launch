@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <launch>
    <arg name="image_raw_topic" default="/image_raw" />
    <arg name="object_detection_topic" default="/object_detection" />

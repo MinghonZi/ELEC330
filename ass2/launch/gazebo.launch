@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <launch>
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <env name="GAZEBO_RESOURCE_PATH" value="$(find ass2)"/>

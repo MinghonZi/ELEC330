@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <launch>
    <include file="$(find ass2)/launch/gazebo.launch" />
    <!-- <include file="$(find ass2)/launch/manipulator.launch" /> -->
