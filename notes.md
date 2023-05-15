@@ -1,5 +1,5 @@
 
-
+[Dummy link (base_link) in URDF](https://www.reddit.com/r/ROS/comments/13fv0h0/dummy_link_in_urdf/)
 
 [Anime Crop Datasets: Faces, Figures, & Hands](https://www.gwern.net/Crops#danbooru2019-portraits)
 https://github.com/bchao1/Anime-Face-Dataset
