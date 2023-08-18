@@ -13,7 +13,6 @@
     "files.exclude": {
         "CMakeLists.txt": true,
         "**/.gdb_history": true,
-        "ass1": true,
         "manmaru_description": false,
     },
 
